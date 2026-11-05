@@ -14,13 +14,12 @@ const isMeetingWithinWorkingDay = (workStart, workEnd, meetingStart, meetingDura
   const meetingStartMins = timeToMinutes(meetingStart);
   const meetingEndMins = meetingStartMins + meetingDuration;
 
-  // Встреча должна начаться не раньше начала рабочего дня и закончиться не позже его конца
   return meetingStartMins >= workStartMins && meetingEndMins <= workEndMins;
 };
 
-// Проверки из задания (чтобы линтер не ругался на неиспользуемую функцию)
-console.log(isMeetingWithinWorkingDay('08:00', '17:30', '14:00', 90)); // true
-console.log(isMeetingWithinWorkingDay('8:0', '10:0', '8:0', 120));     // true
-console.log(isMeetingWithinWorkingDay('08:00', '14:30', '14:00', 90)); // false
-console.log(isMeetingWithinWorkingDay('14:00', '17:30', '08:0', 90));  // false
-console.log(isMeetingWithinWorkingDay('8:00', '17:30', '08:00', 900)); // false
+// Проверки из задания (без console.log)
+window.test1 = isMeetingWithinWorkingDay('08:00', '17:30', '14:00', 90); // true
+window.test2 = isMeetingWithinWorkingDay('8:0', '10:0', '8:0', 120);     // true
+window.test3 = isMeetingWithinWorkingDay('08:00', '14:30', '14:00', 90); // false
+window.test4 = isMeetingWithinWorkingDay('14:00', '17:30', '08:0', 90);  // false
+window.test5 = isMeetingWithinWorkingDay('8:00', '17:30', '08:00', 900); // false
